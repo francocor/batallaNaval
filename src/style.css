@@ -1,0 +1,79 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .app {
+    text-align: center;
+    max-width: 100%;
+    padding: 20px;
+  }
+  
+  .board {
+    display: grid;
+    grid-template-rows: repeat(10, min(30px, 5vw));
+    grid-template-columns: repeat(10, min(30px, 5vw));
+    gap: 2px;
+    margin: 0 auto;
+  }
+  
+  .row {
+    display: contents;
+  }
+  
+  .cell {
+    width: 100%;
+    height: 100%;
+    background-color: #b0c4de;
+    border: 1px solid #87ceeb;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cell.hit {
+    background-color: #ff4500;
+    animation: hitAnimation 0.5s ease;
+  }
+  
+  .cell.miss {
+    background-color: #add8e6;
+    animation: missAnimation 0.5s ease;
+  }
+  
+  .cell.ship {
+    background-color: #808080;
+  }
+  
+  .game-over {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #ff4500;
+  }
+  
+  .difficulty {
+    margin-bottom: 20px;
+  }
+  
+  @keyframes hitAnimation {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+  }
+  
+  @keyframes missAnimation {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+  }
+  
+  @media (max-width: 600px) {
+    .board {
+      grid-template-rows: repeat(10, min(20px, 8vw));
+      grid-template-columns: repeat(10, min(20px, 8vw));
+    }
+  }
